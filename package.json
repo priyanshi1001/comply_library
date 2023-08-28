@@ -1,0 +1,68 @@
+{
+  "version": "0.12.7",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test --passWithNoTests",
+    "lint": "tsdx lint",
+    "prepare": "tsdx build",
+    "size": "size-limit",
+    "analyze": "size-limit --why"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint"
+    }
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "name": "comply_npm",
+  "author": "Prateek_Upadhyay",
+  "module": "dist/comply_npm.esm.js",
+  "size-limit": [
+    {
+      "path": "dist/comply_npm.cjs.production.min.js",
+      "limit": "10 KB"
+    },
+    {
+      "path": "dist/comply_npm.esm.js",
+      "limit": "10 KB"
+    }
+  ],
+  "devDependencies": {
+    "@size-limit/preset-small-lib": "^8.2.4",
+    "@types/react": "^18.2.6",
+    "@types/react-dom": "^18.2.4",
+    "husky": "^8.0.3",
+    "react-dom": "^18.2.0",
+    "size-limit": "^8.2.4",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.5.0",
+    "typescript": "^3.9.10"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/icons-material": "^5.14.3",
+    "@mui/material": "^5.14.4",
+    "axios": "^1.4.0",
+    "bootstrap": "^5.3.1",
+    "node-sass": "^9.0.0",
+    "react": "^18.2.0",
+    "react-redux": "^8.1.2"
+  }
+}
