@@ -103,6 +103,7 @@ export function IndividualUs() {
     accountBankName: '',
     accountBankBranchLocationId: 1,
     accountNumber: '',
+    abaRouting: '',
     iban: '',
     swiftCode: '',
     bankCode: '',
@@ -116,7 +117,7 @@ export function IndividualUs() {
     isCorrectPaymentPurposes: true,
     isConfirmed: true,
   });
-
+    
   useEffect(() => {
     apiGetUrl('GetCountries', '', {})
       .then(res => {
@@ -315,7 +316,6 @@ export function IndividualUs() {
                           onChange={() =>
                             setPayload({ ...payload, isUSEntity: true })
                           }
-                          // value={payload.isUSEntity}
                           value="yes"
                           name="radio-buttons"
                           inputProps={{ 'aria-label': 'Yes' }}
@@ -1755,7 +1755,6 @@ export function IndividualUs() {
                               value={payload.incomeTypeId}
                             >
                               <option value="1">-Select-</option>
-
                               {incomeCodes.map(({ id, name }) => (
                                 <option value={id}>{name}</option>
                               ))}
@@ -1862,9 +1861,6 @@ export function IndividualUs() {
                         }}
                         name="paymentTypeId"
                         id="Payment"
-                        // onChange={e => {
-                        //   paymentSelection(e.target.value);
-                        // }}
                         onChange={(e: any) =>
                           setPayload({
                             ...payload,
@@ -2763,6 +2759,13 @@ export function IndividualUs() {
                                   id="outlined"
                                   name="state"
                                   placeholder="Enter ABA / Rounting"
+                                onChange={(e: any) =>
+                                  setPayload({
+                                    ...payload,
+                                    swiftCode: e.target.value,
+                                  })
+                                }
+                                value={payload.swiftCode}
                                 />
                               </FormControl>
                             </div>
