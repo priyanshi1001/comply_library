@@ -103,6 +103,7 @@ export function IndividualUs() {
     accountBankName: '',
     accountBankBranchLocationId: 1,
     accountNumber: '',
+    abaRouting: '',
     iban: '',
     swiftCode: '',
     bankCode: '',
@@ -116,7 +117,7 @@ export function IndividualUs() {
     isCorrectPaymentPurposes: true,
     isConfirmed: true,
   });
-
+    
   useEffect(() => {
     apiGetUrl('GetCountries', '', {})
       .then(res => {

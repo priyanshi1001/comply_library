@@ -96,6 +96,7 @@ export function Entity() {
     accountBankName: '',
     accountBankBranchLocationId: 1,
     accountNumber: '',
+    abaRouting: '',
     iban: '',
     swiftCode: '',
     bankCode: '',
@@ -2241,7 +2242,7 @@ export function Entity() {
                                   fontStyle: 'italic',
                                   height: '36px',
                                 }}
-                                labelId="demo-simple-select-standard-label"
+                                // labelId="demo-simple-select-standard-label"
                                 id="demo-simple-select-standard"
                                 name="accountBankBranchLocationId"
                                 onChange={(e: any) =>
@@ -2558,7 +2559,7 @@ export function Entity() {
                                 }}
                                 id="outlined"
                                 name="payStateOrProvince"
-                                placeholder="Enter  State OR Provience"
+                                placeholder="Enter State OR Provience"
                                 onChange={(e: any) =>
                                   setPayload({
                                     ...payload,
@@ -2603,9 +2604,16 @@ export function Entity() {
                           </div>
                         </div>
 
-                        <div className="d-flex mt-3">
-                          //REMAINING
-                          <Checkbox />
+                        <div className="d-flex mt-3"> 
+                          <Checkbox 
+                           checked={payload.isCorrectPaymentPurposes}
+                           name="radio-buttons"
+                           onChange={() =>
+                             setPayload({
+                               ...payload,
+                               isConfirmed: !payload.isCorrectPaymentPurposes,
+                             })
+                           }/>
                           <Typography
                             align="left"
                             style={{ marginTop: '10px' }}
@@ -2824,8 +2832,15 @@ export function Entity() {
                                     padding: ' 0 10px ',
                                   }}
                                   id="outlined"
-                                  name="state"
+                                  name="abaRouting"
                                   placeholder="Enter ABA / Rounting"
+                                onChange={(e: any) =>
+                                  setPayload({
+                                    ...payload,
+                                    abaRouting: e.target.value,
+                                  })
+                                }
+                                value={payload.abaRouting}
                                 />
                               </FormControl>
                             </div>
