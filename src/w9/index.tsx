@@ -14,6 +14,63 @@ import Backup from "../reusables/Backup"
 
 
 export function W9() {
+  const [data,setData] = useState({
+    id: 0,
+    agentId: 0,
+    formTypeSelectionId: 0,
+    federalTaxClassificationId: 0,
+    firstName: "",
+    lastName: "",
+    businessName: "",
+    isExemptionfromBackup: false,
+    interestDividendPaymentId: 0,
+    brokerTransactionsId: 0,
+    barterExchangeTransactionId: 0,
+    paymentOver600RequiredId: 0,
+    paymentThirdPartyNetworkId: 0,
+    isExemptionFATCAReportings: false,
+    fatcaReportingId: 0,
+    tiN_USTINId: 0,
+    tiN_USTIN: "",
+    birthCertificate: "",
+    certificateOfIncorporation: "",
+    drivingLicense: "",
+    passport: "",
+    powerOfAttorneyStatement: "",
+    proofOfResidency: "",
+    additionalDocumentId1: 0,
+    additionalDocument1: "",
+    additionalDocumentId2: 0,
+    additionalDocument2: "",
+    additionalDocumentId3: 0,
+    additionalDocument3: "",
+    additionalDocumentId4: 0,
+    additionalDocument4: "",
+    additionalDocumentId5: 0,
+    additionalDocument5: "",
+    additionalDocumentId6: 0,
+    additionalDocument6: "",
+    additionalDocumentId7: 0,
+    additionalDocument7: "",
+    additionalDocumentId8: 0,
+    additionalDocument8: "",
+    additionalDocumentId9: 0,
+    additionalDocument9: "",
+    additionalDocumentId10: 0,
+    additionalDocument10: "",
+    certification_CorrectTaxpayerIdentification: false,
+    certification_IRS: false,
+    certification_USCitizenPerson: false,
+    certification_FATCACode: false,
+    certification_IRSBackupWithHolding: false,
+    certification_ElectronicForm: false,
+    signedBy: "",
+    confirmationCode: "",
+    date: "",
+    isConfirm: false,
+    countryOfIncorporationOrganizationId: 0,
+    usFederalTaxClassificationId: 0,
+  })
 
   const [open, setOpen] = useState(false);
   const handleClickOpen = () => setOpen(true);
@@ -31,6 +88,9 @@ export function W9() {
    const handleTaxClassificationChange = (event: ChangeEvent<HTMLSelectElement>) => { 
    setSelectedTaxClassification(event.target.value);
  };
+ const handleChange = (e: React.ChangeEvent<HTMLInputElement> ) :void => {
+  setData({ ...data, [e.target.name]: e.target.value });
+};
 
 
   
@@ -214,6 +274,9 @@ export function W9() {
 
                     <FormControl className="w-100">
                       <Input
+                        name="firstName"
+                        value={data.firstName}
+                        onChange={handleChange}
                         required
                         style={{
                           width: '150%',
@@ -238,6 +301,9 @@ export function W9() {
 
                     <FormControl className="w-100">
                       <Input
+                      name="lastName"
+                      value={data.lastName}
+                      onChange={handleChange}
                         required
                         style={{
                           width: '150%',
@@ -328,6 +394,9 @@ export function W9() {
 
                     <FormControl className="w-100">
                       <Input
+                      name="businessName"
+                      value={data.businessName}
+                      onChange={handleChange}
                         required
                         style={{
                           width: '200%',
@@ -413,7 +482,9 @@ export function W9() {
     <RadioGroup
         row
         aria-labelledby="demo-row-radio-buttons-group-label"
-        name="row-radio-buttons-group"
+        name="isExemptionfromBackup"
+        value={data.isExemptionfromBackup}
+        onChange={handleChange}
       >
         <FormControlLabel value="female" control={<Radio />} label="Yes" />
         <FormControlLabel value="male" control={<Radio />} label="No" />
