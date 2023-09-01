@@ -11,6 +11,7 @@ import Divider from '@mui/material/Divider';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Formw9 from "../reusables/W9"
 import Backup from "../reusables/Backup"
+import Save from "../reusables/Save"
 
 
 export function W9() {
@@ -97,6 +98,11 @@ export function W9() {
     const [open1, setOpen1] = useState(false);
     const handleClickOpen1 = () => setOpen1(true);
     const handleClose1 = () => setOpen1(false);
+
+
+    const [open2, setOpen2] = useState(false);
+    const handleClickOpen2 = () => setOpen2(true);
+    const handleClose2 = () => setOpen2(false);
 
 
   return (
@@ -427,7 +433,9 @@ export function W9() {
 
           </div>
           <div style={{ display: 'flex', justifyContent: 'center', marginTop: '80px' }}>
-        <Button variant="contained" style={{ color: "white" }}>
+        <Button onClick={()=>{
+                  setOpen2(true)
+                }} variant="contained" style={{ color: "white" }}>
           SAVE & EXIT
         </Button>
         <Button 
@@ -493,7 +501,7 @@ export function W9() {
       </RadioGroup>
     </div>
     <Paper style={{backgroundColor:"#adadac"}}>
-      <Typography style={{margin:"10px",justifyContent:"center",fontSize:"13px"}}>
+      <Typography style={{margin:"10px",justifyContent:"center",fontSize:"13px",marginTop:'10px',marginBottom:'10px'}}>
       If you are an individual completing the submission, please select either 'Yes' or 'No'. If you are submitting this form as an entity, and are not sure which to select, please refer to the help available or select "Don't Know", where you will be guided through a series of questions to help you determine based on your expected income type.
       </Typography>
 
@@ -501,7 +509,9 @@ export function W9() {
 
   </div>
   <div style={{ display: 'flex', justifyContent: 'center', marginTop: '80px' }}>
-        <Button variant="contained" style={{ color: "white" }}>
+        <Button  onClick={()=>{
+                  setOpen2(true)
+                }}variant="contained" style={{ color: "white" }}>
           SAVE & EXIT
         </Button>
         <Button 
@@ -586,7 +596,9 @@ export function W9() {
   ):null}
 </div>
 <div style={{ display: 'flex', justifyContent: 'center', marginTop: '80px' }}>
-        <Button variant="contained" style={{ color: "white" }}>
+        <Button onClick={()=>{
+                  setOpen2(true)
+                }}variant="contained" style={{ color: "white" }}>
           SAVE & EXIT
         </Button>
         <Button 
@@ -674,7 +686,9 @@ export function W9() {
                       
                       </div>
                       <div style={{ display: 'flex', justifyContent: 'center', marginTop: '80px' }}>
-        <Button variant="contained" style={{ color: "white" }}>
+        <Button onClick={()=>{
+                  setOpen2(true)
+                }}variant="contained" style={{ color: "white" }}>
           SAVE & EXIT
         </Button>
         <Button 
@@ -868,7 +882,9 @@ export function W9() {
 
 
                       <div style={{ display: 'flex', justifyContent: 'center', marginTop: '80px' }}>
-        <Button variant="contained" style={{ color: "white" }}>
+        <Button onClick={()=>{
+                  setOpen2(true)
+                }}variant="contained" style={{ color: "white" }}>
           SAVE & EXIT
         </Button>
         <Button 
@@ -968,7 +984,9 @@ export function W9() {
                      
    
                       <div style={{ display: 'flex', justifyContent: 'center', marginTop: '40px' }}>
-        <Button variant="contained" style={{ color: "white" }}>
+        <Button onClick={()=>{
+                  setOpen2(true)
+                }} variant="contained" style={{ color: "white" }}>
           SAVE & EXIT
         </Button>
         <Button 
@@ -1000,8 +1018,8 @@ export function W9() {
 {selectedContinue.step7 ?(<Paper  style={{ marginLeft: '5px', width: '80%' }}>
 <Typography align='left' style={{ margin: '10px',fontSize:"20px" ,fontWeight:'550'}}>Part II Certification<span style={{ color: 'red' }}>*</span>
                       </Typography>
-                      <Typography style={{ margin: '10px',fontSize:"20px" ,fontWeight:'550'}}>W-9 Electronic Substitute Form Statement</Typography>
-                      <Typography style={{ margin: '10px',fontSize:"12px", color:"grey"}}>
+                      <Typography  align='left'style={{ margin: '10px',fontSize:"20px" ,fontWeight:'550'}}>W-9 Electronic Substitute Form Statement</Typography>
+                      <Typography align='left' style={{ margin: '10px',fontSize:"12px", color:"grey"}}>
                       The Internal Revenue Service does not require your consent to any provisions of this document other than the certifications required to avoid backup withholding.
                       </Typography>
                       <div style={{margin:'20px',display:"flex",marginTop:"20px",justifyContent:"space-between"}}>
@@ -1057,7 +1075,7 @@ export function W9() {
                      
                       
                       </div>
-                      <Typography align='left' style={{margin:'10px'}}>
+                      <Typography align='left' style={{margin:'10px',marginLeft:"20px"}}>
                        <Typography  style={{fontSize:"15px"}}>
                        Date<span style={{ color: 'red' }}>*</span>
                       <InfoIcon
@@ -1069,7 +1087,7 @@ export function W9() {
                        type='date'
                         required
                         style={{
-                          width: '28%',
+                          width: '32%',
                           border: ' 1px solid #d9d9d9 ',
                           height: ' 36px',
                           lineHeight: '36px ',
@@ -1100,7 +1118,9 @@ export function W9() {
 
 
          <div style={{ display: 'flex', justifyContent: 'center', marginTop: '40px' }}>
-        <Button variant="contained" style={{ color: "white" }}>
+        <Button onClick={()=>{
+                  setOpen2(true)
+                }} variant="contained" style={{ color: "white" }}>
           SAVE & EXIT
         </Button>
         <Button 
@@ -1145,6 +1165,12 @@ open={open1}
 setOpen={setOpen1}
 handleClickOpen={handleClickOpen1}
 handleClose={handleClose1}
+/>
+<Save
+open={open2} 
+setOpen={setOpen2}
+handleClickOpen={handleClickOpen2}
+handleClose={handleClose2}
 />
 
     </div>
