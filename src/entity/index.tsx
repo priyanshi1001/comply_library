@@ -52,8 +52,8 @@ export function Entity() {
     businessTypeId: 1,
     isUSEntity: true,
     uniqueIdentifier: '',
-    firstName: '',
-    lastName: '',
+    // firstName: '',
+    // lastName: '',
     countryOfCitizenshipId: 1,
     dob: '',
     nameOfDisregarded: '',
@@ -524,9 +524,12 @@ export function Entity() {
                         value={payload.usTinTypeId}
                       >
                         <option value="1">-Select-</option>
-                        <option value="1">SSN/ITIN</option>
-                        <option value="2">Applied for</option>
-                        <option value="3">U.S. TIN not applicable</option>
+                        <option value="2">EIN</option>
+                        <option value="3">QIEIN</option>
+                        <option value="4">WPEIN</option>
+                        <option value="5">WTEIN</option>
+                        <option value="6">Applied for</option>
+                        <option value="7">U.S. TIN not applicable</option>
                       </select>
                     </FormControl>
                   </div>
@@ -785,6 +788,7 @@ export function Entity() {
                       value={payload.permanentResidentialCountryId}
                     >
                       <option value="1">-Select-</option>
+
                       {countries.map(({ id, name }) => (
                         <option value={id}>{name}</option>
                       ))}
