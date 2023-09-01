@@ -6,7 +6,7 @@ import InfoIcon from '@mui/icons-material/Info';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
-import {FormControl,Typography,Button, Input,Paper} from '@mui/material'
+import {FormControl,Typography,Button, Input,Paper,Checkbox} from '@mui/material'
 import Divider from '@mui/material/Divider';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Formw9 from "../reusables/W9"
@@ -26,7 +26,7 @@ export function W9() {
    };
 
   const [selectedTaxClassification, setSelectedTaxClassification] = useState<string>('');
-  const [selectedContinue, setselectedContinue] = useState({step1:true,step2:false,step3:false,step4:false,step5:false,step6:false}); 
+  const [selectedContinue, setselectedContinue] = useState({step1:true,step2:false,step3:false,step4:false,step5:false,step6:false,step7:false,step8:false}); 
  
    const handleTaxClassificationChange = (event: ChangeEvent<HTMLSelectElement>) => { 
    setSelectedTaxClassification(event.target.value);
@@ -364,7 +364,7 @@ export function W9() {
         <Button 
 
           onClick={() => {
-            setselectedContinue({step1:false,step2:true,step3:false,step4:false,step5:false,step6:false})
+            setselectedContinue({step1:false,step2:true,step3:false,step4:false,step5:false,step6:false,step7:false,step8:false})
             // setOpen(true);
            
 
@@ -436,7 +436,7 @@ export function W9() {
         <Button 
 
           onClick={() => {
-            setselectedContinue({step1:false,step2:false,step3:true,step4:false,step5:false,step6:false})
+            setselectedContinue({step1:false,step2:false,step3:true,step4:false,step5:false,step6:false,step7:false,step8:false})
             // setOpen(true);
            
 
@@ -521,7 +521,7 @@ export function W9() {
         <Button 
 
           onClick={() => {
-            setselectedContinue({step1:false,step2:false,step3:false,step4:true,step5:false,step6:false})
+            setselectedContinue({step1:false,step2:false,step3:false,step4:true,step5:false,step6:false,step7:false,step8:false})
           
            
 
@@ -609,7 +609,7 @@ export function W9() {
         <Button 
 
           onClick={() => {
-            setselectedContinue({step1:false,step2:false,step3:false,step4:false,step5:true,step6:false})
+            setselectedContinue({step1:false,step2:false,step3:false,step4:false,step5:true,step6:false,step7:false,step8:false})
             // setOpen(true);
            
 
@@ -803,7 +803,7 @@ export function W9() {
         <Button 
 
           onClick={() => {
-            setselectedContinue({step1:false,step2:false,step3:false,step4:false,step5:false,step6:true})
+            setselectedContinue({step1:false,step2:false,step3:false,step4:false,step5:false,step6:false,step7:true,step8:false})
             // setOpen(true);
            
 
@@ -811,6 +811,238 @@ export function W9() {
           }}
         variant="contained" style={{ color: "white", marginLeft: '15px' }}>
           Continue
+        </Button>
+      </div>
+      <Typography align="center" style={{ color: '#adadac', justifyContent: 'center', alignItems: "center", marginTop: "20px" }}>
+        Do you want to go back?
+      </Typography >
+      <Typography align="center">
+        <Button variant="contained" style={{ color: "white", backgroundColor: "black", marginTop: "10px" ,marginBottom:'20px'}}>
+          Back
+        </Button>
+      </Typography>
+
+</Paper>):""}
+
+
+
+{selectedContinue.step6 ?(<Paper  style={{ marginLeft: '5px', width: '80%' }}>
+<Typography align='left' style={{ margin: '10px',fontSize:"20px" ,fontWeight:'550',marginLeft:"20px"}}>Certification  <span style={{ color: 'red' }}>*</span>
+                      <InfoIcon
+                        style={{ color: '#ffc107', fontSize: '13px',verticalAlign:"super" }}
+
+                      /> </Typography>
+                      <Typography style={{ margin: '10px',fontSize:"12px", color:"grey",marginLeft:"20px"}}>
+                      Under penalties of perjury, I certify that:
+                      </Typography>
+                     
+<Paper  style={{ marginLeft: '20px', width: '80%',backgroundColor:"#d2d6d3" }}>
+  <div style={{margin:'10px'}}>
+    <Typography style={{display:"flex"}}>
+      <Checkbox/>
+      <Typography style={{fontSize:'13px',color:'black',marginTop:'11px'}}>
+        The Number Show on the form is my correct taxpayer identification number
+
+      </Typography>
+    </Typography>
+    <Typography style={{display:"flex"}}>
+      <Checkbox/>
+      <Typography style={{fontSize:'13px',color:'black',marginTop:'11px'}}>
+        The Number Show on the form is my correct taxpayer identification number
+
+      </Typography>
+    </Typography>
+    <Typography style={{display:"flex"}}>
+      <Checkbox/>
+      <Typography style={{fontSize:'13px',color:'black',marginTop:'11px'}}>
+        The Number Show on the form is my correct taxpayer identification number
+
+      </Typography>
+    </Typography>
+    <Typography style={{display:"flex"}}>
+      <Checkbox/>
+      <Typography style={{fontSize:'13px',color:'black',marginTop:'11px'}}>
+        The Number Show on the form is my correct taxpayer identification number
+
+      </Typography>
+    </Typography>
+    <Typography style={{display:"flex"}}>
+      <Checkbox/>
+      <Typography style={{fontSize:'13px',color:'black',marginTop:'11px'}}>
+        The Number Show on the form is my correct taxpayer identification number
+
+      </Typography>
+    </Typography>
+    <Typography style={{fontSize:'11px',color:'black',marginTop:"10px",marginBottom:"20px"}}>Please check the box below if you have been notified by the IRS that you are currently subject to backup withholding because you have failed to report all interest and dividends on your tax return. For real estate transactions, item 2 does not apply.For mortgage interest paid, acquisition or abandonment of secured property, cancellation of debt, contributions to an individual retirement arrangement (IRA), and generally, payments other than interest and dividends, you are not required to sign the Certification, but you must provide your correct TIN. (Please note e-submission through this service requires an e-signature)</Typography>
+    <Typography style={{display:"flex"}}>
+      <Checkbox/>
+      <Typography style={{fontSize:'13px',color:'black',marginTop:'11px'}}>
+        The Number Show on the form is my correct taxpayer identification number
+
+      </Typography>
+    </Typography>
+    <Typography style={{display:"flex"}}>
+      <Checkbox/>
+      <Typography style={{fontSize:'13px',color:'black',marginTop:'11px'}}>
+        The Number Show on the form is my correct taxpayer identification number
+        <span style={{color:"blue",fontSize:"13px",marginLeft:"5px"}}>
+          (view Electronic Form)
+        </span>
+
+      </Typography>
+    </Typography>
+  </div>
+
+</Paper>
+                     
+   
+                      <div style={{ display: 'flex', justifyContent: 'center', marginTop: '40px' }}>
+        <Button variant="contained" style={{ color: "white" }}>
+          SAVE & EXIT
+        </Button>
+        <Button 
+
+          onClick={() => {
+            setselectedContinue({step1:false,step2:false,step3:false,step4:false,step5:false,step6:false,step7:false,step8:true})
+           
+           
+
+            
+          }}
+        variant="contained" style={{ color: "white", marginLeft: '15px' }}>
+          Continue
+        </Button>
+      </div>
+      <Typography align="center" style={{ color: '#adadac', justifyContent: 'center', alignItems: "center", marginTop: "20px" }}>
+        Do you want to go back?
+      </Typography >
+      <Typography align="center">
+        <Button variant="contained" style={{ color: "white", backgroundColor: "black", marginTop: "10px" ,marginBottom:'20px'}}>
+          Back
+        </Button>
+      </Typography>
+
+</Paper>):""}
+
+
+
+{selectedContinue.step7 ?(<Paper  style={{ marginLeft: '5px', width: '80%' }}>
+<Typography align='left' style={{ margin: '10px',fontSize:"20px" ,fontWeight:'550'}}>Part II Certification<span style={{ color: 'red' }}>*</span>
+                      </Typography>
+                      <Typography style={{ margin: '10px',fontSize:"20px" ,fontWeight:'550'}}>W-9 Electronic Substitute Form Statement</Typography>
+                      <Typography style={{ margin: '10px',fontSize:"12px", color:"grey"}}>
+                      The Internal Revenue Service does not require your consent to any provisions of this document other than the certifications required to avoid backup withholding.
+                      </Typography>
+                      <div style={{margin:'20px',display:"flex",marginTop:"20px",justifyContent:"space-between"}}>
+                       <div>
+                       <Typography  style={{fontSize:"15px"}}>
+                       Signed by<span style={{ color: 'red' }}>*</span>
+                      <InfoIcon
+                        style={{ color: '#ffc107', fontSize: '13px',verticalAlign:"super" }}
+
+                      /> 
+                       </Typography>
+                       <select
+                       style={{
+                        padding: ' 0 10px',
+                        color: '#7e7e7e',
+                        fontStyle: 'italic',
+                        height: '36px',
+                        width: '295%'
+                      }}
+                      name="permanentResidentialCountryId1"
+                      id="Income"
+                      defaultValue={1}>
+                        
+
+                       </select>
+                       </div>
+                      
+                       <div style={{marginRight:"150px"}} >
+                       <Typography style={{fontSize:"15px"}}>
+                       Enter Confirmation Code:<span style={{ color: 'red' }}>*</span>
+                      <InfoIcon
+                        style={{ color: '#ffc107', fontSize: '13px',verticalAlign:"super" }}
+
+                      /> 
+                       </Typography>
+                        <Input
+                        type='password'
+                        required
+                        style={{
+                          width: '120%',
+                          border: ' 1px solid #d9d9d9 ',
+                          height: ' 36px',
+                          lineHeight: '36px ',
+                          background: '#fff ',
+                          fontSize: '13px',
+                          color: ' #000 ',
+                          fontStyle: 'normal',
+                          borderRadius: '1px',
+                          padding: ' 0 10px ',}}
+                       />
+                       <span style={{fontSize:"12px",color:"blue"}}>Recover Password</span>
+                       </div>
+                     
+                      
+                      </div>
+                      <Typography align='left' style={{margin:'10px'}}>
+                       <Typography  style={{fontSize:"15px"}}>
+                       Date<span style={{ color: 'red' }}>*</span>
+                      <InfoIcon
+                        style={{ color: '#ffc107', fontSize: '13px',verticalAlign:"super" }}
+
+                      /> 
+                       </Typography>
+                       <Input
+                       type='date'
+                        required
+                        style={{
+                          width: '28%',
+                          border: ' 1px solid #d9d9d9 ',
+                          height: ' 36px',
+                          lineHeight: '36px ',
+                          background: '#fff ',
+                          fontSize: '13px',
+                          color: ' #000 ',
+                          fontStyle: 'normal',
+                          borderRadius: '1px',
+                          padding: ' 0 10px ',}}
+                       />
+                       </Typography>
+
+                       <Typography style={{display:"flex",marginLeft:"10px"}}>
+      <Checkbox/>
+      <Typography style={{fontSize:'13px',color:'black',marginTop:'7px'}}>
+        Please "check" box to confirm your acceptance with the above declarations  <InfoIcon
+                        style={{ color: '#ffc107', fontSize: '13px',verticalAlign:"super" }}
+
+                      /> 
+       
+
+      </Typography>
+    </Typography>
+                     
+
+
+
+
+
+         <div style={{ display: 'flex', justifyContent: 'center', marginTop: '40px' }}>
+        <Button variant="contained" style={{ color: "white" }}>
+          SAVE & EXIT
+        </Button>
+        <Button 
+
+          onClick={() => {
+            setselectedContinue({step1:false,step2:false,step3:false,step4:false,step5:false,step6:false,step7:false,step8:false})
+           
+           
+
+            
+          }}
+        variant="contained" style={{ color: "white", marginLeft: '15px' }}>
+          Submit Electronically
         </Button>
       </div>
       <Typography align="center" style={{ color: '#adadac', justifyContent: 'center', alignItems: "center", marginTop: "20px" }}>
