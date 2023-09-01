@@ -2499,7 +2499,7 @@ export function Entity() {
                                 }}
                                 id="outlined"
                                 name="payAptSuite"
-                                placeholder="Enter Apt/Suite"
+                                placeholder="Enter Apt/Suite"                   
                                 onChange={(e: any) =>
                                   setPayload({
                                     ...payload,
