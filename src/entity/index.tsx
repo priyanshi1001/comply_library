@@ -102,6 +102,7 @@ export function Entity() {
     bankCode: '',
     makePayable: '',
     payResidentalCountryId: 1,
+    doingBusinessAsName: '',
     payStreetNumberAndName: '',
     payAptSuite: '',
     payCityorTown: '',
@@ -163,7 +164,7 @@ export function Entity() {
     }
   }, [payload.permanentResidentialCountryId]);
 
-  const handleOpen = val => {
+  const handleOpen = (val:string)=> {
     if (open === val) {
       setOpen('');
     } else setOpen(val);
@@ -670,7 +671,7 @@ export function Entity() {
                 ) : (
                   ''
                 )}
-                {payload.isUSEntity ?(
+                {!payload.isUSEntity ?(
                   <div className="col-lg-3 col-6 col-md-3 ">
                     <FormControl className="w-100">
                       <Typography align="left">
@@ -1018,24 +1019,6 @@ export function Entity() {
                           }
                         />
                       </RadioGroup>
-                      {/* <Typography className="my-auto">Yes</Typography>
-                    <Radio
-                      required
-                    //   checked={selectedValue === 'a'}
-                    //   onChange={handleRadio}
-                      value="a"
-                      name="radio-buttons"
-                      inputProps={{ 'aria-label': 'A' }}
-                    />
-                    <Typography className="my-auto">No</Typography>
-                    <Radio
-                      required
-                    //   checked={selectedValue === 'b'}
-                    //   onChange={handleRadio}
-                      value="b"
-                      name="radio-buttons"
-                      inputProps={{ 'aria-label': 'B' }}
-                    /> */}
                     </div>
                   </div>
                   <div className="mx-5">
@@ -1077,24 +1060,6 @@ export function Entity() {
                           }
                         />
                       </RadioGroup>
-                      {/* <Typography className="my-auto">Yes</Typography>
-                    <Radio
-                      required
-                    //   checked={selectedValue === 'a'}
-                    //   onChange={handleRadio}
-                      value="a"
-                      name="radio-buttons"
-                      inputProps={{ 'aria-label': 'A' }}
-                    />
-                    <Typography className="my-auto">No</Typography>
-                    <Radio
-                      required
-                    //   checked={selectedValue === 'b'}
-                    //   onChange={handleRadio}
-                      value="b"
-                      name="radio-buttons"
-                      inputProps={{ 'aria-label': 'B' }}
-                    /> */}
                     </div>
                   </div>
 
@@ -1156,7 +1121,7 @@ export function Entity() {
                       </Typography>
 
                       <FormControl className="w-100">
-                        <Select
+                        <select
                           style={{
                             padding: ' 0 10px',
                             color: '#7e7e7e',
@@ -1193,7 +1158,7 @@ export function Entity() {
                           {countries.map(({ id, name }) => (
                             <option value={id}> {name} </option>
                           ))}
-                        </Select>
+                        </select>
                       </FormControl>
                     </div>
                     <div className="row">
@@ -2239,7 +2204,7 @@ export function Entity() {
                               <span style={{ color: 'red' }}>*</span>
                             </Typography>
                             <FormControl className="w-100">
-                              <Select
+                              <select
                                 style={{
                                   padding: ' 0 10px',
                                   color: '#7e7e7e',
@@ -2276,7 +2241,7 @@ export function Entity() {
                                 {countries.map(({ id, name }) => (
                                   <option value={id}> {name} </option>
                                 ))}
-                              </Select>
+                              </select>
                             </FormControl>
                           </div>
 
@@ -2386,12 +2351,46 @@ export function Entity() {
                               />
                             </FormControl>
                           </div>
-                          <div className="col-lg-3 col-6 col-md-3 mt-2">
+                          <div className="col-lg-3 col-6 col-md-3">
+                            <Typography align="left" className="d-flex w-100 ">
+                        Residential Country:
+                        <span style={{ color: 'red' }}>*</span>
+                      </Typography>
                             <FormControl className="w-100">
-                              <Typography align="left">
-                                {' '}
-                                Residential Country
-                              </Typography>
+                        <select
+                          style={{
+                            padding: ' 0 10px',
+                            color: '#7e7e7e',
+                            fontStyle: 'italic',
+                            height: '36px',
+                          }}
+                          name="payResidentalCountryId"
+                          id="Income"
+                          defaultValue={1}
+                          onChange={(e: any) =>
+                            setPayload({
+                              ...payload,
+                              payResidentalCountryId: e.target.value,
+                            })
+                          }
+                          value={payload.payResidentalCountryId}
+                        >
+                          <option value="">-Select-</option>
+                          <option value={257}>United Kingdom</option>
+                          <option value={258}>United States</option>
+                          <option value="">---</option>
+                          {countries.map(({ id, name }) => (
+                            <option value={id}> {name} </option>
+                          ))}
+                        </select>
+                      </FormControl>
+                          </div>
+                          <div className="col-lg-3 col-6 col-md-3 mt-2">
+                            <Typography align="left">
+                              Doing Business As Name
+                              <span style={{ color: 'red' }}>*</span>
+                            </Typography>
+                            <FormControl className="w-100">
                               <Input
                                 required
                                 style={{
@@ -2405,42 +2404,17 @@ export function Entity() {
                                   borderRadius: '1px',
                                   padding: ' 0 10px ',
                                 }}
+                                
                                 id="outlined"
-                                name="payResidentalCountryId"
-                                placeholder="Enter Residential Country"
+                                name="doingBusinessAsName"
+                                placeholder="Enter Doing Business As Name"
                                 onChange={(e: any) =>
                                   setPayload({
                                     ...payload,
-                                    payResidentalCountryId: e.target.value,
+                                    doingBusinessAsName: e.target.value,
                                   })
                                 }
-                                value={payload.payResidentalCountryId}
-                              />
-                            </FormControl>
-                          </div>
-                          <div className="col-lg-3 col-6 col-md-3 mt-2">
-                            <Typography align="left">
-                              Doing Business As Name
-                              <span style={{ color: 'red' }}>*</span>
-                            </Typography>
-                            <FormControl className="w-100">
-                              <Select
-                                required
-                                style={{
-                                  border: ' 1px solid #d9d9d9 ',
-                                  height: ' 36px',
-                                  lineHeight: '36px ',
-                                  background: '#fff ',
-                                  fontSize: '13px',
-                                  color: ' #000 ',
-                                  fontStyle: 'normal',
-                                  borderRadius: '1px',
-                                  padding: ' 0 10px ',
-                                }}
-                                //REMAINING
-                                id="outlined"
-                                name="city"
-                                placeholder="Enter Doing Business As Name"
+                                value={payload.doingBusinessAsName}
                               />
                             </FormControl>
                           </div>
@@ -2615,7 +2589,7 @@ export function Entity() {
                            onChange={() =>
                              setPayload({
                                ...payload,
-                               isConfirmed: !payload.isCorrectPaymentPurposes,
+                               isCorrectPaymentPurposes: !payload.isCorrectPaymentPurposes,
                              })
                            }/>
                           <Typography
@@ -2702,7 +2676,7 @@ export function Entity() {
                               <span style={{ color: 'red' }}>*</span>
                             </Typography>
                             <FormControl className="w-100">
-                              <Select
+                              <select
                                 style={{
                                   padding: ' 0 10px',
                                   color: '#7e7e7e',
@@ -2778,7 +2752,7 @@ export function Entity() {
                                     {name}{' '}
                                   </option>
                                 ))}
-                              </Select>
+                              </select>
                             </FormControl>
                           </div>
 

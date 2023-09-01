@@ -8,7 +8,6 @@ import {
   Select,
   MenuItem,
   Input,
-  Radio,
   Button,
 } from '@mui/material';
 import Checkbox from '@mui/material/Checkbox';
@@ -18,7 +17,14 @@ import ControlPointOutlinedIcon from '@mui/icons-material/ControlPointOutlined';
 import InfoIcon from '@mui/icons-material/Info';
 import DeleteIcon from '@mui/icons-material/Delete';
 import Paper from '@mui/material/Paper';
-
+// import RemoveCircleOutlineOutlinedIcon from '@mui/icons-material/RemoveCircleOutlineOutlined';
+// import ControlPointOutlinedIcon from '@mui/icons-material/ControlPointOutlined';
+// import InfoIcon from '@mui/icons-material/Info';
+// import DeleteIcon from '@mui/icons-material/Delete';
+// import Paper from '@mui/material/Paper';
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
 // import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css'
 // import "./style.css"
 
@@ -114,6 +120,7 @@ export function IndividualUs() {
     payCityorTown: '',
     payStateOrProvince: '',
     payZipPostalCode: '',
+    doingBusinessAsName: '',
     isCorrectPaymentPurposes: true,
     isConfirmed: true,
   });
@@ -160,7 +167,7 @@ export function IndividualUs() {
     }
   }, [payload.permanentResidentialCountryId]);
 
-  const handleOpen = val => {
+  const handleOpen = (val:string) => {
     if (open === val) {
       setOpen('');
     } else setOpen(val);
@@ -1020,6 +1027,89 @@ export function IndividualUs() {
                       />
                     </FormControl>
                   </div>
+                  <div className='d-flex'>
+                  <div >
+                    <Typography align="left" style={{ marginTop: '20px' }}>
+                      Is this address a Post Office Box?
+                      <span style={{ color: 'red' }}>*</span>
+                      <InfoIcon
+                        style={{
+                          color: '#ffc107',
+                          fontSize: '15px',
+                          marginBottom: '12px',
+                        }}
+                        onClick={clickInfo}
+                      />
+                    </Typography>
+
+                    <div>
+                      <RadioGroup
+                        row
+                        aria-labelledby="demo-row-radio-buttons-group-label"
+                        name="row-radio-buttons-group"
+                      >
+                        <FormControlLabel
+                          value="female"
+                          control={<Radio />}
+                          label="No"
+                          checked={!payload.isAddressPostOfficeBox }
+                          onChange={() =>
+                            setPayload({ ...payload, isAddressPostOfficeBox: false })
+                          }
+                        />
+                        <FormControlLabel
+                          value="male"
+                          control={<Radio />}
+                          label="Yes"
+                          checked={payload.isAddressPostOfficeBox }
+                          onChange={() =>
+                            setPayload({ ...payload, isAddressPostOfficeBox: true })
+                          }
+                        />
+                      </RadioGroup>
+                    </div>
+                  </div>
+                  <div className="mx-5">
+                    <Typography style={{ marginTop: '20px' }}>
+                      Is this an In Care Of address?
+                      <span style={{ color: 'red' }}>*</span>
+                      <InfoIcon
+                        style={{
+                          color: '#ffc107',
+                          fontSize: '15px',
+                          marginBottom: '12px',
+                        }}
+                        onClick={clickInfo}
+                      />
+                    </Typography>
+
+                    <div className="d-flex">
+                      <RadioGroup
+                        row
+                        aria-labelledby="demo-row-radio-buttons-group-label"
+                        name="row-radio-buttons-group"
+                      >
+                        <FormControlLabel
+                          value="female"
+                          control={<Radio />}
+                          label="No"
+                          checked={!payload.isCareOfAddress }
+                          onChange={() =>
+                            setPayload({ ...payload, isCareOfAddress: false })
+                          }
+                        />
+                        <FormControlLabel
+                          value="male"
+                          control={<Radio />}
+                          label="Yes"
+                          checked={payload.isCareOfAddress }
+                          onChange={() =>
+                            setPayload({ ...payload, isCareOfAddress: true })
+                          }
+                        />
+                      </RadioGroup>
+                    </div>
+                  </div>
                 </div>
 
                 <div>
@@ -1068,7 +1158,7 @@ export function IndividualUs() {
                     />
                   </div>
                 </div>
-
+                </div>
                 {/* IF Alternate mailing address */}
 
                 {payload.isalternativebusinessaddress ? (
@@ -2318,36 +2408,38 @@ export function IndividualUs() {
                             </FormControl>
                           </div>
                           <div className="col-lg-3 col-6 col-md-3 mt-2">
-                            <FormControl className="w-100">
-                              <Typography align="left">
-                                {' '}
-                                Residential Country
-                              </Typography>
-                              <Input
-                                required
-                                style={{
-                                  border: ' 1px solid #d9d9d9 ',
-                                  height: ' 36px',
-                                  lineHeight: '36px ',
-                                  background: '#fff ',
-                                  fontSize: '13px',
-                                  color: ' #000 ',
-                                  fontStyle: 'normal',
-                                  borderRadius: '1px',
-                                  padding: ' 0 10px ',
-                                }}
-                                id="outlined"
-                                name="payResidentalCountryId"
-                                placeholder="Enter Residential Country"
-                                onChange={(e: any) =>
-                                  setPayload({
-                                    ...payload,
-                                    payResidentalCountryId: e.target.value,
-                                  })
-                                }
-                                value={payload.payResidentalCountryId}
-                              />
-                            </FormControl>
+                            <Typography align="left" className="d-flex w-100 ">
+                        Residential Country:
+                        <span style={{ color: 'red' }}>*</span>
+                      </Typography>
+                          <FormControl className="w-100">
+                        <select
+                          style={{
+                            padding: ' 0 10px',
+                            color: '#7e7e7e',
+                            fontStyle: 'italic',
+                            height: '36px',
+                          }}
+                          name="payResidentalCountryId"
+                          id="Income"
+                          defaultValue={1}
+                          onChange={(e: any) =>
+                            setPayload({
+                              ...payload,
+                              payResidentalCountryId: e.target.value,
+                            })
+                          }
+                          value={payload.payResidentalCountryId}
+                        >
+                          <option value="">-Select-</option>
+                          <option value={257}>United Kingdom</option>
+                          <option value={258}>United States</option>
+                          <option value="">---</option>
+                          {countries.map(({ id, name }) => (
+                            <option value={id}> {name} </option>
+                          ))}
+                        </select>
+                      </FormControl>
                           </div>
                           {/* <div className="col-lg-3 col-6 col-md-3 mt-2">
                             <Typography align="left">
